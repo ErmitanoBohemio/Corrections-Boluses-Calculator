@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.TextFlow?>
+
+<VBox alignment="CENTER" prefHeight="710.0" prefWidth="720.0" spacing="20.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.deitel.diabetescorrectionsapp.PrimaryController">
+   <children>
+      <Label styleClass="title" text="Calculadora De Bolus De Corrección Ante Hiperglicemias" />
+      <GridPane hgap="7.0" vgap="7.0">
+        <columnConstraints>
+          <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="10.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label styleClass="labelClass" text="Dosis Diaria Total (Basal y todos los bolos)* (?)">
+               <tooltip>
+                  <Tooltip text="Promedio de dosis de insulina al día, incluye basales, bolos y correcciones." />
+               </tooltip></Label>
+            <TextField fx:id="tddTextField" promptText="u/día" styleClass="inputsClass" GridPane.columnIndex="1" />
+            <Label styleClass="labelClass" text="Glucosa en Sangre Actual* (?)" GridPane.rowIndex="1">
+               <tooltip>
+                  <Tooltip text="Valor de glucosa en sangre reciente de no más de 12 minutos de tomada" />
+               </tooltip></Label>
+            <Label styleClass="labelClass" text="Glucosa en Sangre Objetivo* (?)" GridPane.rowIndex="2">
+               <tooltip>
+                  <Tooltip text="Objetivo de glucosa promedio al que aspira llegar con su recomendación de bolo de corrección" />
+               </tooltip></Label>
+            <TextField fx:id="gsCurrentTextField" promptText="mg/dl" styleClass="inputsClass" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ComboBox fx:id="gsTargetComboBox" maxWidth="1.7976931348623157E308" promptText="140 mg/dl" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label styleClass="labelClass" text="¿Conoce su factor de corrección o sesibilidad a la insulina (FSI)?" GridPane.rowIndex="3">
+               <tooltip>
+                  <Tooltip text="Si no conoce su FSI, la app lo calcula a partir de HbA1c reciente" />
+               </tooltip>
+            </Label>
+            <JFXToggleButton fx:id="fsiOrA1cToggleButton" text="NO" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="fsiOrA1cLabel" style="-fx-font-family: Optima; -fx-font-size: 15; -fx-font-weight: BOLD; -fx-background-color: lavenderblush; -fx-text-fill: purple;" text="Resultado de Hemoglobina Glicosilada Reciente (HbA1c)* (?)" GridPane.rowIndex="4">
+               <tooltip>
+                  <Tooltip fx:id="fsiOra1cTooltip" text="Usa resultado de HbA1c reciente para calcular Factor de sensibilidad a la insulina" />
+               </tooltip></Label>
+            <TextField fx:id="fsiOrA1cTextField" promptText="5.0 - 12.0 %" styleClass="inputsClass" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <JFXToggleButton fx:id="sportsToggleButton" text="NO" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <JFXToggleButton fx:id="lowToggleButton" text="NO" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <toggleGroup>
+                  <ToggleGroup fx:id="groupToggle" />
+               </toggleGroup></JFXToggleButton>
+            <JFXToggleButton fx:id="highToggleButton" text="NO" toggleGroup="$groupToggle" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label styleClass="labelClass" text="¿Su glucosa permanecío alta 3h despues de una corrección?" wrapText="true" GridPane.rowIndex="7">
+               <tooltip>
+                  <Tooltip text="Su glucosa fue superior a +30 mg/dL de su glucosa objetivo luego de 3h de un bolo de correción" />
+               </tooltip></Label>
+            <Label styleClass="labelClass" text="¿Realizará ejercicio aeróbico inmediatamente despues de la correción?" GridPane.rowIndex="5">
+               <tooltip>
+                  <Tooltip text="Debido a que el ejercicio tiene un tendencia a amplificar los efectos de la insulina, es posible que solo necesite un bolo que sea la mitad de lo que normalmente daría para cubrir una lectura alta." />
+               </tooltip></Label>
+            <Label styleClass="labelClass" text="¿Presentó hipoglicemia luego de tratar una hiperglicemia?" wrapText="true" GridPane.rowIndex="6">
+               <tooltip>
+                  <Tooltip text="Su glucosa cayo por debajo de 70 mg/dL luego de un bolo de correción" />
+               </tooltip></Label>
+            <Label styleClass="labelClass" text="Factor de Ajuste por Tendencia (?)" GridPane.rowIndex="8">
+               <tooltip>
+                  <Tooltip text="Ajusta bolo de corrección según flecha de tendencia del MCG (Monitor Continua de Glucosa)" />
+               </tooltip>
+            </Label>
+            <ComboBox fx:id="trendArrowComboBox" maxWidth="1.7976931348623157E308" promptText="No" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label styleClass="labelClass" text="Cuerpos Cetónicos (?)" GridPane.rowIndex="9">
+               <tooltip>
+                  <Tooltip text="Ajusta bolo de correción según nivel de cuerpos cetónicos actual" />
+               </tooltip>
+            </Label>
+            <ComboBox fx:id="ketoacidosisComboBox" maxWidth="1.7976931348623157E308" promptText="No" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+         </children>
+      </GridPane>
+      <ButtonBar prefHeight="40.0" prefWidth="200.0">
+        <buttons>
+          <Button fx:id="calcularButton" mnemonicParsing="false" onAction="#calcularCorreccion" prefWidth="115.0" text="Calcular" />
+            <Button fx:id="reiniciarButton" mnemonicParsing="false" onAction="#reiniciar" text="Reiniciar" />
+        </buttons>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </ButtonBar>
+      <Separator prefWidth="200.0" />
+      <ScrollPane prefHeight="200.0" prefWidth="200.0">
+         <content>
+            <TextFlow fx:id="resultadoTextFlow" />
+         </content>
+      </ScrollPane>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</VBox>

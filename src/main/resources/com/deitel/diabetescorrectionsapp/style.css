@@ -1,0 +1,51 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 4/01/2024, 3:59:40 a. m.
+    Author     : OscarFabianHP
+*/
+
+.labelClass {
+    -fx-font: normal 15px 'Optima';
+    -fx-text-fill: darkslategray;
+}
+
+.title {
+    -fx-font:bold 18px 'Optima';
+    -fx-text-fill: slategray;  
+}
+
+.inputsClass{
+    -fx-font: normal 15px 'Optima'
+}
+
+
+#ketoacidosisComboBox {
+    -fx-font-family: 'Optima';
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+#trendArrowComboBox {
+    -fx-font-family: 'Optima';
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+#gsTargetComboBox {
+    -fx-font-family: 'Optima';
+    -fx-font-weight: bold;
+}
+
+#calcularButton {
+    -fx-font-family: 'Optima';
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+}
+
+#reiniciarButton {
+    -fx-font-family: 'Optima';
+    -fx-font-size: 15px;
+}
