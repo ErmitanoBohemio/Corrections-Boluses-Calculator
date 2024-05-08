@@ -1,6 +1,8 @@
-﻿# Corrections Boluses Calculator
+﻿# Correction Boluses Calculator
+
 ![Corrections Boluses Calculator App with HbA1c](https://i.ibb.co/NNQk1FS/Captura-1-Corrections-App.png)
-App calculadora bolos de corrección ante Hiperglicemias/Hiperglucemias en personas con diabetes que usan insulina rápida para sus dosis de corrección.
+
+> App calculadora bolos de corrección ante Hiperglicemias/Hiperglucemias en personas con diabetes que usan insulina rápida para sus dosis de corrección.
 ## APPLICATION INFORMATION
 This app allows you to calculate the recommended “correction dose” to fix blood sugars that are above target. This adjustment improves your chances of having a blood sugar reading that is within your target range before the next meal.
 
